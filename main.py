@@ -16,7 +16,7 @@ def main() -> None:
 
     if not os.getenv("OPENAI_API_KEY"):
         raise EnvironmentError(
-            "ANTHROPIC_API_KEY is not set. Add it to your .env file or environment."
+            "OPENAI_API_KEY is not set. Add it to your .env file or environment."
         )
 
     print("Fetching latest news...")

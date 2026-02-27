@@ -1,6 +1,6 @@
-"""Generates a podcast script from news items using the Claude API."""
+"""Generates a podcast script from news items using the OpenAI API."""
 
-import anthropic
+from openai import OpenAI
 from src.news_fetcher import NewsItem
 
 
@@ -25,15 +25,15 @@ def build_user_prompt(news_items: list[NewsItem], podcast_name: str) -> str:
 
 
 def generate_script(news_items: list[NewsItem], podcast_name: str = "AI News Daily") -> str:
-    client = anthropic.Anthropic()
+    client = OpenAI()
 
-    message = client.messages.create(
-        model="claude-opus-4-6",
+    response = client.chat.completions.create(
+        model="gpt-4o",
         max_tokens=4096,
-        system=SYSTEM_PROMPT,
         messages=[
-            {"role": "user", "content": build_user_prompt(news_items, podcast_name)}
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": build_user_prompt(news_items, podcast_name)},
         ],
     )
 
-    return message.content[0].text
+    return response.choices[0].message.content
