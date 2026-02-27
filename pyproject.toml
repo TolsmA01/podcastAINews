@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "podcastAINews"
+version = "0.1.0"
+description = "AI-generated podcast based on the latest news"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.30.0",
+    "requests>=2.32.0",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0.0",
+    "feedparser>=6.0.0",
+    "gtts>=2.5.0",
+    "pydub>=0.25.1",
+]
+
+[project.scripts]
+podcast-ai-news = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
