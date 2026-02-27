@@ -1,17 +1,32 @@
-podcast_name: "AI News Daily"
+# Number of articles to pull from each feed (kept low for source diversity)
+max_items_per_feed: 3
 
-# Number of articles to pull from each feed
-max_items_per_feed: 5
-
-# RSS feeds to pull news from
+# RSS feeds - diverse sources to avoid over-representing any single outlet
 rss_feeds:
-  - name: "BBC Technology"
-    url: "http://feeds.bbci.co.uk/news/technology/rss.xml"
-  - name: "TechCrunch"
-    url: "https://techcrunch.com/feed/"
-  - name: "The Verge"
-    url: "https://www.theverge.com/rss/index.xml"
-  - name: "Ars Technica"
-    url: "http://feeds.arstechnica.com/arstechnica/technology-lab"
+  # General tech / independent
+  - name: "Wired"
+    url: "https://www.wired.com/feed/rss"
   - name: "MIT Technology Review"
     url: "https://www.technologyreview.com/feed/"
+  - name: "Ars Technica"
+    url: "http://feeds.arstechnica.com/arstechnica/technology-lab"
+
+  # Mainstream news tech desks
+  - name: "BBC Technology"
+    url: "http://feeds.bbci.co.uk/news/technology/rss.xml"
+  - name: "Reuters Technology"
+    url: "https://feeds.reuters.com/reuters/technologyNews"
+  - name: "The Guardian Technology"
+    url: "https://www.theguardian.com/technology/rss"
+
+  # Startup / business / VC angle
+  - name: "TechCrunch"
+    url: "https://techcrunch.com/feed/"
+  - name: "VentureBeat"
+    url: "https://venturebeat.com/feed/"
+
+  # Deep-tech / research angle
+  - name: "The Verge"
+    url: "https://www.theverge.com/rss/index.xml"
+  - name: "ZDNet"
+    url: "https://www.zdnet.com/news/rss.xml"
