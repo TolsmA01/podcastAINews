@@ -7,7 +7,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from src.news_fetcher import fetch_news
-from src.script_generator import generate_script
+from src.script_generator import generate_script, _estimate_minutes, _word_count
 from src.audio_generator import generate_audio
 
 
@@ -56,6 +56,10 @@ def main() -> None:
     output_dir = Path("output")
     output_dir.mkdir(exist_ok=True)
 
+    words = _word_count(script)
+    mins = _estimate_minutes(script)
+    print(f"Script: {words} words (~{mins:.1f} min estimated audio)")
+
     # Save script + sources to txt
     script_path = output_dir / f"podcast_{timestamp}.txt"
     sources_block = _format_sources(news_items)
@@ -64,11 +68,11 @@ def main() -> None:
 
     # Generate audio (sources are not read aloud)
     audio_path = output_dir / f"podcast_{timestamp}.mp3"
-    print("Generating audio with OpenAI TTS (voice: sage)...")
+    print("Generating audio with OpenAI TTS (voice: echo)...")
     generate_audio(script, audio_path)
 
     print(f"\nDone! Files saved to {output_dir}/")
-    print(f"  Script : {script_path.name}")
+    print(f"  Script : {script_path.name}  ({words} words, ~{mins:.1f} min)")
     print(f"  Audio  : {audio_path.name}")
 
 

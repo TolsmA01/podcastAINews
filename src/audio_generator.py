@@ -1,4 +1,4 @@
-"""Converts the podcast script to audio using the OpenAI TTS API (voice: sage)."""
+"""Converts the podcast script to audio using the OpenAI TTS API (voice: echo)."""
 
 import io
 import re
@@ -66,7 +66,7 @@ def generate_audio(script: str, output_path: str | Path) -> Path:
         print(f"[audio_generator] Processing chunk {i}/{len(chunks)}...")
         response = client.audio.speech.create(
             model="tts-1-hd",
-            voice="sage",
+            voice="echo",
             input=chunk,
         )
         audio_bytes = io.BytesIO(response.content)
