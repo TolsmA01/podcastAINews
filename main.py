@@ -14,7 +14,7 @@ from src.audio_generator import generate_audio
 def main() -> None:
     load_dotenv()
 
-    if not os.getenv("ANTHROPIC_API_KEY"):
+    if not os.getenv("OPENAI_API_KEY"):
         raise EnvironmentError(
             "ANTHROPIC_API_KEY is not set. Add it to your .env file or environment."
         )
