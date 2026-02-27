@@ -9,13 +9,11 @@ rss_feeds:
   - name: "MIT Technology Review"
     url: "https://www.technologyreview.com/feed/"
   - name: "Ars Technica"
-    url: "http://feeds.arstechnica.com/arstechnica/technology-lab"
+    url: "https://feeds.arstechnica.com/arstechnica/technology-lab"
 
   # Mainstream news tech desks
   - name: "BBC Technology"
-    url: "http://feeds.bbci.co.uk/news/technology/rss.xml"
-  - name: "Reuters Technology"
-    url: "https://feeds.reuters.com/reuters/technologyNews"
+    url: "https://feeds.bbci.co.uk/news/technology/rss.xml"
   - name: "The Guardian Technology"
     url: "https://www.theguardian.com/technology/rss"
 
@@ -30,3 +28,9 @@ rss_feeds:
     url: "https://www.theverge.com/rss/index.xml"
   - name: "ZDNet"
     url: "https://www.zdnet.com/news/rss.xml"
+
+  # AI-specific sources
+  - name: "Google AI Blog"
+    url: "https://blog.google/technology/ai/rss/"
+  - name: "IEEE Spectrum"
+    url: "https://spectrum.ieee.org/feeds/feed.rss"
